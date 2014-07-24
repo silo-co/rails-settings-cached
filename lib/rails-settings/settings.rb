@@ -77,7 +77,8 @@ module RailsSettings
     def self.[]=(var_name, value)
       var_name = var_name.to_s
 
-      record = object(var_name) || thing_scoped.new(:var => var_name)
+      record = object(var_name) || thing_scoped.new
+      record.var = var_name
       record.value = value
       record.save!
 
